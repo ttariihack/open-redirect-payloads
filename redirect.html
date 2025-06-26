@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="refresh" content="0;url=https://evil.com">
+    <title>Redirecting...</title>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const target = params.get("url");
+      if (target && target.startsWith("http")) {
+        window.location.href = target;
+      } else {
+        document.body.innerHTML = "<p>Invalid or missing URL.</p>";
+      }
+    </script>
   </head>
   <body>
-    <p>Redirecting to external site...</p>
+    <p>Redirecting...</p>
   </body>
 </html>
